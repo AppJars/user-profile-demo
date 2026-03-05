@@ -1,0 +1,218 @@
+/*-
+ * #%L
+ * User Profile AppJars - Demo
+ * %%
+ * Copyright (C) 2023 - 2026 AppJars
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+[slot="drawer"] {
+  background-image: linear-gradient(
+    0deg,
+    var(--lumo-shade-5pct),
+    var(--lumo-shade-5pct)
+  );
+}
+
+[slot="drawer"] nav a {
+  text-decoration: none;
+  transition: color 140ms;
+}
+
+[slot="drawer"] nav a .la {
+  margin-top: calc(var(--lumo-space-xs) * 0.5);
+}
+
+[slot="drawer"] nav a::before {
+  border-radius: var(--lumo-border-radius);
+  bottom: calc(var(--lumo-space-xs) * 0.5);
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: calc(var(--lumo-space-xs) * 0.5);
+  transition: background-color 140ms;
+}
+
+[slot="drawer"] nav a[highlight] {
+  color: var(--lumo-primary-text-color);
+}
+
+[slot="drawer"] nav a[highlight]::before {
+  background-color: var(--lumo-primary-color-10pct);
+}
+
+[slot="drawer"] footer vaadin-context-menu {
+  align-items: center;
+  display: flex;
+}
+
+/* Landing page (HomeView) — generic home-* classes, meant to be reused across demos */
+.home-view {
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: var(--lumo-space-l);
+}
+
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lumo-space-s);
+  text-align: center;
+  padding-bottom: var(--lumo-space-m);
+}
+
+.home-hero-logo {
+  width: 144px;
+  height: auto;
+}
+
+.home-hero .home-tagline {
+  color: var(--lumo-secondary-text-color);
+  font-size: var(--lumo-font-size-l);
+  max-width: 44rem;
+  margin: 0;
+}
+
+.home-section {
+  padding-top: var(--lumo-space-m);
+}
+
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--lumo-space-m);
+}
+
+.home-feature-icon {
+  color: var(--lumo-primary-color);
+}
+
+.home-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lumo-space-s);
+  background-color: var(--lumo-contrast-5pct);
+  border-radius: var(--lumo-border-radius-m);
+  padding: var(--lumo-space-m);
+}
+
+.home-credential {
+  display: flex;
+  align-items: baseline;
+  gap: var(--lumo-space-m);
+  flex-wrap: wrap;
+}
+
+.home-credential-code {
+  font-family: var(--lumo-font-family-monospace, monospace);
+  background-color: var(--lumo-contrast-10pct);
+  border-radius: var(--lumo-border-radius-s);
+  padding: 0 var(--lumo-space-s);
+  white-space: nowrap;
+}
+
+.home-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--lumo-space-s);
+  flex-wrap: wrap;
+  padding-top: var(--lumo-space-m);
+}
+
+.home-actions vaadin-menu-bar vaadin-menu-bar-button > div,
+.navbar-tour-menu vaadin-menu-bar-button > div {
+  display: flex;
+  align-items: center;
+  gap: var(--lumo-space-xs);
+}
+
+/* Tour menu of the navigation bar: never let it shrink away next to the view title */
+.navbar-tour-menu {
+  flex: none;
+}
+
+.home-hint {
+  color: var(--lumo-secondary-text-color);
+  font-size: var(--lumo-font-size-s);
+  margin-bottom: 0;
+}
+
+.home-links {
+  display: flex;
+  gap: var(--lumo-space-l);
+  flex-wrap: wrap;
+}
+
+/* Login screen (LoginView) — centered account picker */
+.login-container {
+  max-width: 60rem;
+  text-align: center;
+  padding: var(--lumo-space-l);
+}
+
+.login-title {
+  margin-bottom: var(--lumo-space-s);
+}
+
+.login-intro {
+  color: var(--lumo-secondary-text-color);
+  max-width: 40rem;
+  margin: 0 auto var(--lumo-space-l);
+}
+
+.login-card-row {
+  display: flex;
+  gap: var(--lumo-space-l);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lumo-space-s);
+  flex: 1 1 16rem;
+  max-width: 20rem;
+  text-align: start;
+  padding: var(--lumo-space-m);
+  background-color: var(--lumo-base-color);
+  border: 1px solid var(--lumo-contrast-10pct);
+  border-radius: var(--lumo-border-radius-l);
+  box-shadow: var(--lumo-box-shadow-xs);
+}
+
+.login-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--lumo-space-s);
+  font-size: var(--lumo-font-size-l);
+  font-weight: 600;
+}
+
+.login-card-desc {
+  margin: 0;
+  color: var(--lumo-secondary-text-color);
+}
+
+.login-card-icon {
+  color: var(--lumo-primary-color);
+}
+
+/* Pin the login button to the bottom so it aligns across cards of different heights */
+.login-card vaadin-button {
+  margin-top: auto;
+}
